@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Elisa y la ouija — Leopoldo García Maldonado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #050507;
+  --surface: rgba(14, 15, 19, 0.78);
+  --ink: #DADDE2;
+  --muted: #7C828D;
+  --crimson: #A62B2B;
+  --line: rgba(255, 255, 255, 0.08);
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: "Crimson Pro", Georgia, serif;
+  font-size: 20px;
+  line-height: 1.8;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 64px 20px 96px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Fondo fijo de la Ouija tenue y desaturado para lectura perfecta */
+.ouija-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 45%, #120c0e 0%, #050507 78%);
+}
+
+.ouija-bg svg {
+  width: min(94vw, 920px);
+  height: auto;
+  opacity: 0.085;
+  filter: sepia(35%) saturate(60%) contrast(110%) blur(0.4px);
+  user-select: none;
+}
+
+/* Viñeta oscura en los bordes para dar atmósfera sin saturar */
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, transparent 35%, rgba(3, 3, 5, 0.88) 100%);
+}
+
+main {
+  width: 100%;
+  max-width: 650px;
+  position: relative;
+  z-index: 1;
+}
+
+.meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--crimson);
+  margin-bottom: 12px;
+  display: block;
+}
+
+h1 {
+  font-family: "Cinzel Decorative", "Crimson Pro", Georgia, serif;
+  font-size: clamp(30px, 6vw, 44px);
+  font-weight: 700;
+  line-height: 1.18;
+  color: #F4F5F7;
+  letter-spacing: 0.02em;
+  margin-bottom: 14px;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.9);
+}
+
+.subtitle {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--muted);
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 42px;
+}
+
+article p {
+  margin-bottom: 26px;
+  text-align: left;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+}
+
+article p:first-of-type::first-letter {
+  float: left;
+  font-family: "Cinzel Decorative", Georgia, serif;
+  font-size: 60px;
+  line-height: 0.84;
+  padding-top: 6px;
+  padding-right: 14px;
+  color: var(--crimson);
+  font-weight: 700;
+}
+
+blockquote {
+  margin: 36px 0;
+  padding: 18px 24px;
+  border-left: 2px solid var(--crimson);
+  background: var(--surface);
+  backdrop-filter: blur(4px);
+  font-style: italic;
+  color: #C5CBD3;
+  border-radius: 0 6px 6px 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 46px auto;
+  width: 38%;
+}
+
+footer {
+  margin-top: 64px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+footer a {
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 10px 16px;
+  border-radius: 8px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+footer a:hover {
+  border-color: var(--crimson);
+  color: #FFF;
+}
+</style>
+</head>
+<body>
+
+<div class="ouija-bg" aria-hidden="true">
+  <svg viewBox="0 0 1000 660" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <path id="arc1" d="M 160,340 Q 500,190 840,340" />
+      <path id="arc2" d="M 140,425 Q 500,275 860,425" />
+    </defs>
+    <!-- Marco del tablero -->
+    <rect x="24" y="24" width="952" height="612" rx="34" fill="none" stroke="#d8cbb8" stroke-width="4" />
+    <rect x="38" y="38" width="924" height="584" rx="24" fill="none" stroke="#d8cbb8" stroke-width="1.5" stroke-dasharray="8 6" />
+    
+    <!-- Esquinas ornamentales -->
+    <circle cx="80" cy="80" r="24" fill="none" stroke="#d8cbb8" stroke-width="2"/>
+    <circle cx="920" cy="80" r="24" fill="none" stroke="#d8cbb8" stroke-width="2"/>
+    <circle cx="80" cy="580" r="24" fill="none" stroke="#d8cbb8" stroke-width="2"/>
+    <circle cx="920" cy="580" r="24" fill="none" stroke="#d8cbb8" stroke-width="2"/>
+
+    <!-- Sol y Luna superiores -->
+    <g stroke="#d8cbb8" fill="none" stroke-width="2">
+      <circle cx="170" cy="125" r="36" />
+      <path d="M 170,75 L 170,60 M 170,175 L 170,190 M 120,125 L 105,125 M 220,125 L 235,125 M 135,90 L 122,77 M 205,160 L 218,173 M 205,90 L 218,77 M 135,160 L 122,173" />
+      <path d="M 820,90 A 40,40 0 1,0 855,155 A 32,32 0 1,1 820,90 Z" fill="#d8cbb8" />
+    </g>
+
+    <!-- YES / NO -->
+    <text x="275" y="135" fill="#d8cbb8" font-family="Cinzel Decorative, Georgia, serif" font-size="42" letter-spacing="4">YES</text>
+    <text x="645" y="135" fill="#d8cbb8" font-family="Cinzel Decorative, Georgia, serif" font-size="42" letter-spacing="4">NO</text>
+
+    <!-- Abecedario en arco -->
+    <text fill="#d8cbb8" font-family="Cinzel Decorative, Georgia, serif" font-size="44" letter-spacing="18" text-anchor="middle">
+      <textPath href="#arc1" startOffset="50%">ABCDEFGHIJKLM</textPath>
+    </text>
+    <text fill="#d8cbb8" font-family="Cinzel Decorative, Georgia, serif" font-size="44" letter-spacing="18" text-anchor="middle">
+      <textPath href="#arc2" startOffset="50%">NOPQRSTUVWXYZ</textPath>
+    </text>
+
+    <!-- Números -->
+    <text x="500" y="505" fill="#d8cbb8" font-family="Cinzel Decorative, Georgia, serif" font-size="40" letter-spacing="22" text-anchor="middle">1234567890</text>
+
+    <!-- GOOD BYE -->
+    <text x="500" y="590" fill="#d8cbb8" font-family="Cinzel Decorative, Georgia, serif" font-size="44" letter-spacing="12" text-anchor="middle">GOOD BYE</text>
+
+    <!-- Puntero / Triángulo (Planchette) sutil en el centro -->
+    <g transform="translate(500, 315) rotate(-14)" stroke="#c94a4a" stroke-width="2.5" fill="rgba(10, 10, 14, 0.45)">
+      <path d="M 0,-115 C 65,-30 95,55 85,105 C 50,120 -50,120 -85,105 C -95,55 -65,-30 0,-115 Z" />
+      <circle cx="0" cy="10" r="34" fill="none" stroke="#c94a4a" stroke-width="2" />
+      <circle cx="0" cy="10" r="42" fill="none" stroke="#c94a4a" stroke-width="1" stroke-dasharray="4 4" />
+    </g>
+  </svg>
+</div>
+<div class="vignette" aria-hidden="true"></div>
+
+<main>
+  <header>
+    <span class="meta">Septiembre 2002 // Relato real</span>
+    <h1>Elisa y la ouija</h1>
+    <p class="subtitle">Por Leopoldo García Maldonado</p>
+  </header>
+
+  <article>
+    <p>Todo empezó en septiembre de 2002. Yo tenía diecisiete años y mi vida era la de cualquier chavo de barrio en Guadalupe: tranquila, rodeada de amigos, buscando en qué casa caíamos el fin de semana. El presupuesto nunca era mucho, pero nos ajustaba para armar las aguas locas y pasar el rato entre risas y música. Eran noches simples, sin nada pesado en el ambiente, hasta que el destino puso en mi camino a dos personas que cambiaron esas reuniones por mi primer verdadero vicio: un tablero de madera y un triángulo que supuestamente cobraba vida apenas le ponías las yemas de los índices encima.</p>
+
+    <p>En una de esas fiestas conocí a Tania y a Cecilia. Les gustaba tomar, desvelarse y pasarla bien, así que pronto hicimos grupo. Tania traía un sedán café en el que nos movíamos de reunión en reunión. A medida que agarrábamos confianza, descubrimos que compartíamos la misma curiosidad por las cosas sobrenaturales. Una noche regresamos temprano a mi casa, cerca de las diez, y nos quedamos platicando en la banqueta porque nadie tenía sueño. Entre la charla, Tania soltó un dato que me llamó la atención de inmediato: tenía una tía en San Bernabé que trabajaba la brujería y guardaba una ouija.</p>
+
+    <p>Yo sabía muy poco del tema, pero la curiosidad me ganó. Le pregunté si su tía nos prestaría la tabla. Tania se encogió de hombros y dijo que, total, no teníamos nada mejor que hacer. Nos subimos al carro y cruzamos la ciudad desde Guadalupe hasta San Bernabé. El trayecto fue ligero, platicando de lo que había pasado en la fiesta, pero en cuanto entramos a la colonia de su tía el aire se sintió distinto. Las calles estaban casi a oscuras, flanqueadas por casas viejas, con el block pelón y la pintura caída. No había un alma afuera y aun así se sentía una pesadez incómoda, de esas colonias donde sabes que no debes quedarte mirando a ningún lado.</p>
+
+    <p>Nos estacionamos frente a la casa. Tania apagó el motor, se bajó sola y se metió directo sin tocar la puerta ni anunciar su llegada. Cecilia se quedó en el asiento del copiloto; atrás veníamos mi amigo Luis y yo, esperando en silencio. Quince minutos después, Tania salió cargando un bulto envuelto en un trapo negro. Se subió al volante, me pasó el paquete hacia el asiento trasero y me dio las instrucciones exactas que le acababa de encargar su tía.</p>
+
+    <p>Mientras dábamos vuelta para regresar a Guadalupe, desenvolví la tabla, me la acomodé sobre las piernas y puse los dedos en el puntero junto con Luis. Empecé con preguntas obvias para probarla: cómo me llamaba, quiénes veníamos arriba del carro, cuántos años teníamos. El triángulo acertó todas. Al principio me reí por dentro pensando que era pura sugestión y que mis propias manos empujaban la madera hacia respuestas que yo ya conocía de memoria. Cuando llegamos a mi casa nos quedamos platicando un rato afuera y ni siquiera volvimos a tocar el tema. Antes de irse, Tania y Cecilia me hicieron una sola advertencia: que guardara la tabla, pero que por ningún motivo la metiera a mi casa. Crucé la calle y la escondí en un terreno que teníamos casi enfrente, un lote solitario que a veces se rentaba como taller o servía para arrumbar herramienta.</p>
+
+    <hr>
+
+    <p>Con el paso de las semanas, aquel terreno se convirtió en nuestro punto de reunión. El rumor corrió rápido por la cuadra y el grupo creció hasta juntarnos quince personas alrededor de la mesa. Al principio eran las preguntas típicas de chavos de entre diecisiete y veinte años: quién andaba tras quién, a quién le caía mal fulano, chismes de la colonia. Pero nunca faltaba el imprudente que preguntaba la fecha de su propia muerte, cruzando una línea que en ese juego jamás se debe tocar porque la mente se sugestiona y el miedo se queda adentro.</p>
+
+    <p>Al cumplir un año con la tabla en el lote, el ambiente del terreno se descompuso. Empezaron a cruzarse sombras por las paredes sin revocar y se oían ruidos secos entre las herramientas cuando no había nadie. Lejos de asustarme, aquello me atrapó más. Compré libros de magia negra, leí sobre invocaciones y aprendí rituales por mi cuenta. Para entonces el grupo ya me salía sobrando; empecé a cruzar la calle completamente solo a la una o dos de la madrugada. Me encerraba en el terreno dos horas seguidas, tres veces por semana, platicando a oscuras con el tablero.</p>
+
+    <p>La entidad que me respondía aseguraba ser una niña llamada Elisa. Me contaba que había muerto calcinada junto a toda su familia en un accidente de carretera. Me dio detalles de cómo ocurrió y del punto exacto donde habían quedado, aunque jamás quise investigar si era cierto ni mucho menos pararme por allá. Lo extraño era el vínculo que se formó entre la tabla y yo. Cuando volvíamos a jugar en rueda con los demás, yo me ponía al centro y el puntero solo se movía bajo mis dedos. Elisa empezó a ponerse territorial a la vista de todos. De pronto el triángulo se disparaba con violencia por las letras para insultar a alguno de los presentes.</p>
+
+    <blockquote>
+      "Sácala a la verga, no la quiero aquí, que se largue, me molesta su presencia."
+    </blockquote>
+
+    <p>Si queríamos que siguiera contestando, teníamos que correr del terreno a quien ella señalara. Una noche, con el grupo lleno, decidimos retarla. Le dijimos que no íbamos a sacar a nadie y que nos contestara de todos modos. El triángulo se clavó en seco. Estuvimos diez minutos insistiendo sobre la madera muerta hasta que nos hartamos. Solté el puntero, me levanté y dije: "Ya vámonos, no quiere jugar".</p>
+
+    <p>Apenas nos dimos la vuelta hacia la salida, escuchamos el roce de la madera a nuestras espaldas. Volteamos y vimos cómo el triángulo se arrastraba completamente solo sobre el tablero, trazando giros sin sentido durante unos segundos hasta que salió disparado por el aire, se estrelló de lleno contra la pared y cayó al piso. Nadie dijo nada; salimos corriendo a media calle con el corazón en la garganta.</p>
+
+    <p>El susto me duró dos semanas. Nadie quiso volver a pararse en el terreno, pero a mí me quemaban las ansias por regresar. La abstinencia pudo más que la prudencia y una madrugada volví a abrir el portón. Todo seguía intacto: la tabla sobre la mesa y el triángulo tirado en el suelo, justo donde había rebotado contra el muro. Lo levanté, lo puse al centro y llamé a Elisa. Me respondió de inmediato. Me explicó por qué detestaba a las personas que había corrido aquella noche y le prometí que jamás volverían a pisar el lugar. A partir de esa sesión el tono cambió: me empezó a hablar de mis abuelos y tíos fallecidos, y luego me ofreció dañar a quien me estorbara. Me decía que ella me enseñaría cómo perjudicar a la gente. Yo nunca busqué hacerle mal a nadie, pero tenía dieciocho años y me tentaba la idea de conseguir dinero y poder social. Cuando le pregunté cómo lograrlo, me puso una condición: antes de decirme el precio real, tenía que llevarle a ciertas personas del antiguo grupo para que se sentaran de nuevo a la mesa.</p>
+
+    <hr>
+
+    <p>Le hice caso. Busqué uno por uno a los amigos que ella me pidió y los convencí de regresar al terreno. Jugamos así durante varios meses, ya con año y medio encima desde que la tabla llegó de San Bernabé. Fue justo después de entregarle esas visitas cuando el problema cruzó la calle y se metió a mi propia casa.</p>
+
+    <p>Mi descanso se rompió por completo. Todos los días despertaba de golpe entre las dos y las tres de la mañana, ahogado en la misma pesadilla. Soñaba que corría por los pasillos de una casona enorme mientras un hombre de gabardina y sombrero negro me perseguía gritándome que me iba a arrastrar al infierno y que me haría sufrir por mucho tiempo. Lo peor ocurría al final del sueño: yo lograba llegar hasta mi propia recámara y me veía a mí mismo acostado en la cama, dormido. Desde afuera de mi cuerpo intentaba sacudirme y abrir mis propios párpados, que pesaban como plomo, desesperado por despertar antes de que el hombre del sombrero cruzara el marco de la puerta. Justo cuando su sombra iba a alcanzarme, abría los ojos en la vida real.</p>
+
+    <p>Pero despertar no aliviaba nada. En cuanto recobraba el sentido en la oscuridad de mi cuarto, me invadía un pánico helado, una urgencia física como si unas manos invisibles me empujaran o me jalaran fuera de la habitación. Tenía que levantarme casi a tientas y refugiarme en la sala, paralizado por un terror tan espeso que ni siquiera me atrevía a voltear hacia el pasillo por miedo a toparme con alguien mirándome.</p>
+
+    <p>A pesar de eso, no solté la tabla; ya no era curiosidad, era una adicción. Poco después, el ambiente de mi casa terminó de podrirse. Al volver del terreno veía sombras escurrirse por los rincones, escuchaba murmullos detrás de las paredes, las puertas se abrían o daban portazos solas, los focos parpadeaban y los aparatos eléctricos se encendían a media noche. Asustado por lo que había metido a mi hogar, intenté hacer rituales por mi cuenta para limpiar la casa, pero fue como echarle gasolina al fuego. Las manifestaciones dejaron de ser ruidos y se fueron directo contra mi cuerpo.</p>
+
+    <p>Cada madrugada, al dar las dos o tres de la mañana, abría los ojos y descubría que estaba completamente inmóvil. Con el cuerpo rígido como una piedra y sin voz para gritar, veía cómo la puerta de mi cuarto se cerraba despacio y el televisor se prendía y apagaba solo, iluminando la habitación a chispazos. Luego la pantalla quedaba negra y el cuarto se hundía en la oscuridad total. Era en ese silencio, mientras las lágrimas me escurrían calientes por las sienes de pura impotencia, cuando sentía que alguien se sentaba en el borde de mi cama. Sentía con total claridad el peso hundiendo el colchón junto a mis pies y una mano recorriendo despacio la sábana que me cubría. Aquellos segundos se hacían eternos, hasta que la puerta volvía a abrirse sola, la televisión encendía de golpe y mi cuerpo recuperaba el movimiento. Me levantaba temblando, llorando en silencio, para irme a tirar al sillón de la sala o al cuarto de mis papás.</p>
+
+    <p>El desgaste físico me delató. Dejé de comer, bajé mucho de peso, traía las ojeras marcadas y mis padres empezaron a encontrarme todas las mañanas dormido en la sala. Preocupados, me acorralaron a preguntas hasta que no pude sostenerlo más y les confesé todo: los dos años encerrado en el terreno de enfrente, la tabla de San Bernabé, los libros y las cosas que me hacían despertar llorando. El susto en la casa fue mayúsculo. Su primera reacción fue ordenarme que quemara la ouija o la tirara a la basura, pero recordé las advertencias del inicio y hablé con Tania. Ella me pidió que no se me ocurriera quemarla ni romperla; pasó en su carro por ella para devolvérsela a su tía.</p>
+
+    <p>A mí me llevaron a confesar con un sacerdote y empecé a acudir a la iglesia cada semana, tratando de borrar de mi cabeza todo lo que había leído y practicado en aquel lote. La calma no regresó de la noche a la mañana; las sombras y los ruidos tardaron cerca de un año en apagarse poco a poco. Han pasado más de veinte años desde que entregué esa tabla, y aunque ya es raro que suceda, todavía hay madrugadas en las que despierto a las tres de la mañana con el corazón acelerado y esa vieja urgencia empujándome a salir de mi propio cuarto. A veces pienso que una parte de lo que habitaba en aquella madera se quedó conmigo para siempre.</p>
+  </article>
+
+  <footer>
+    <span>© Leopoldo García Maldonado</span>
+    <a href="https://garcia3657-droid.github.io/legarciam/">← Volver al perfil</a>
+  </footer>
+</main>
+</body>
+</html>
